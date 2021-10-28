@@ -1,6 +1,8 @@
 {
-  "parser": "typescript",
-  "printWidth": 120,
-  "trailingComma": "all",
-  "tabWidth": 4
+    "parser": "typescript",
+    "semi": true,
+    "trailingComma": "all",
+    "printWidth": 80,
+    "tabWidth": 4,
+    "endOfLine": "auto"
 }
