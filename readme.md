@@ -28,4 +28,9 @@ for problems from the following sources:
 #### Testing with jest
 `yarn test` or `npm run test`
 
+### Additional information
+
+[This spreadsheet](https://docs.google.com/spreadsheets/d/14ClKTj8NHLLYYpazCkna_xx8h1w78n5gZIl3WVSu2p4/edit?usp=sharing) is a toolbox of the implementations in this project.
+
+
 
