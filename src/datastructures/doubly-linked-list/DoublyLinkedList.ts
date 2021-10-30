@@ -1,4 +1,3 @@
-import { timeStamp } from "console";
 import { DoublyLinkedListNode } from ".";
 import { IDoublyLinkedList, TDoublyLinkedListNode } from "./types";
 
@@ -102,35 +101,116 @@ export class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
     get(index: number): TDoublyLinkedListNode<T> {
         if (index < 0 || index >= this.length) return null;
 
-        let currentNode = this.head;
-        let currentIndex = 0;
+        const isReverse = index >= Math.floor(this.length / 2);
+
+        let currentNode = isReverse ? this.tail : this.head;
+        let currentIndex = isReverse ? this.length - 1 : 0;
 
         while (currentNode) {
             if (currentIndex === index) {
                 return currentNode;
             }
 
-            currentIndex++;
-            currentNode = currentNode.next;
+            if (isReverse) {
+                currentIndex--;
+                currentNode = currentNode.previous;
+            } else {
+                currentIndex++;
+                currentNode = currentNode.next;
+            }
         }
 
         return null;
     }
 
     set(index: number, newValue: T): boolean {
-        throw new Error("Method not implemented.");
+        const node = this.get(index);
+
+        if (!node) {
+            return false;
+        }
+
+        node.value = newValue;
+        return true;
     }
 
     insert(index: number, value: T): boolean {
-        throw new Error("Method not implemented.");
+        if (index < 0 || index > this.length) return false;
+
+        if (index === 0) {
+            this.unshift(value);
+            return true;
+        }
+
+        if (index === this.length) {
+            this.push(value);
+            return true;
+        }
+
+        const prevNode = this.get(index - 1);
+        const currentNode = prevNode?.next;
+
+        if (prevNode && currentNode) {
+            const newNode = new DoublyLinkedListNode(
+                currentNode,
+                prevNode,
+                value,
+            );
+            prevNode.next = newNode;
+            currentNode.previous = newNode;
+            this.length++;
+            return true;
+        }
+
+        return false;
     }
 
     remove(index: number): T | undefined {
-        throw new Error("Method not implemented.");
+        if (index < 0 || index >= this.length) return undefined;
+
+        if (index === 0) {
+            return this.shift();
+        }
+
+        if (index === this.length - 1) {
+            return this.pop();
+        }
+
+        const nodeToRemove = this.get(index);
+        const prevNode = nodeToRemove?.previous;
+        const nextNode = nodeToRemove?.next;
+
+        if (nodeToRemove && prevNode && nextNode) {
+            nodeToRemove.next = null;
+            nodeToRemove.previous = null;
+
+            prevNode.next = nextNode;
+            nextNode.previous = prevNode;
+
+            this.length--;
+
+            return nodeToRemove.value;
+        }
+
+        return undefined;
     }
 
     reverse(): IDoublyLinkedList<T> {
-        throw new Error("Method not implemented.");
+        const oldHead = this.head;
+        this.head = this.tail;
+        this.tail = oldHead;
+
+        let currentNode = this.head;
+
+        while (currentNode) {
+            const oldNext = currentNode.next;
+            currentNode.next = currentNode.previous;
+            currentNode.previous = oldNext;
+
+            currentNode = currentNode.next;
+        }
+
+        return this;
     }
 
     toString(): string {
