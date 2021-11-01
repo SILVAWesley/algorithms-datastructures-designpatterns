@@ -1,6 +1,6 @@
 import { DoublyLinkedListNode } from "./DoublyLinkedListNode";
 
-describe("SinglyLinkedListNode | Simple | 01", () => {
+describe("DoublyLinkedListNode | Simple | 01", () => {
     test("numeric value | empty next", () => {
         const dllNode = new DoublyLinkedListNode(null, null, 10);
 
