@@ -2,7 +2,7 @@
  * Write a function called sumZero which accepts a sorted array
  * of intergers. The function should find the first pair where
  * the sum is 0. Return an array that includes both values that
- * sum to zero ro undefined if a pair does not exist.
+ * sum to zero return undefined if a pair does not exist.
  */
 export function sumZero(arr: number[]) {
     let lowerPointer = 0;

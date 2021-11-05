@@ -9,6 +9,10 @@ export function maxSubarraySum(arr: number[], elements: number) {
         return null;
     }
 
+    if (arr.length < elements) {
+        return null;
+    }
+
     // First sum
     let sum = 0;
 
