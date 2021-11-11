@@ -7,6 +7,10 @@
  * is equal to the sum of the previous two numbers.
  */
 export function fib(num: number): number {
+    if (num <= 0) {
+        return -1;
+    }
+
     if (num === 1) {
         return 1;
     }
