@@ -35,9 +35,10 @@ describe("DoublyLinkedListNode | Simple | 01", () => {
     });
 
     test("null value | null next", () => {
-        const sllNode = new DoublyLinkedListNode(null, null, null);
+        const dllNode = new DoublyLinkedListNode(null, null, null);
 
-        expect(sllNode.next).toBe(null);
-        expect(sllNode.value).toBe(null);
+        expect(dllNode.next).toBe(null);
+        expect(dllNode.previous).toBe(null);
+        expect(dllNode.value).toBe(null);
     });
 });
