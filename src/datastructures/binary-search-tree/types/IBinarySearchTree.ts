@@ -6,4 +6,7 @@ export interface IBinarySearchTree<T> {
     isEmpty(): boolean;
     search(value: T): TBinarySearchTreeNode<T> | undefined;
     remove(value: T): TBinarySearchTreeNode<T> | undefined;
+    inorder(): T[];
+    preorder(): T[];
+    postorder(): T[];
 }

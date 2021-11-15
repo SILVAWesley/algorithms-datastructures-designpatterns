@@ -44,36 +44,44 @@ export class BinarySearchTree<T> implements IBinarySearchTree<T> {
     }
 
     remove(value: T): TBinarySearchTreeNode<T> | undefined {
-        throw new Error("To be implemented");
-        /*let currentNode = this.root;
+        const result = this.innerRemove(this.root, value);
+        this.root = result || null;
+        return result;
+    }
 
-        while (currentNode) {
-            if (value > currentNode.value) {
-                currentNode = currentNode.right;
-            } else if (value < currentNode.value) {
-                currentNode = currentNode.left;
-            } else {
-                // Case 1: The element has 2 children
-                if (currentNode.left && currentNode.right) {
-                    // Case 2: Only one child
-                } else if (currentNode.left || currentNode.right) {
-                    if (currentNode.left) {
-                        const tempNode = currentNode.left;
-                        currentNode.value = tempNode.value;
-                        currentNode.left = tempNode.left;
-                        currentNode.right = tempNode.right;
-                    } else if (currentNode.right) {
-                        const tempNode = currentNode.right;
-                        currentNode.value = tempNode.value;
-                        currentNode.left = tempNode.left;
-                        currentNode.right = tempNode.right;
-                    }
-                    //Case 3 : No children
-                } else {
-                    currentNode.value = null;
-                }
+    private innerRemove(node: TBinarySearchTreeNode<T>, value: T) {
+        if (!node) {
+            return null;
+        }
+
+        if (value === node.value) {
+            if (!node.left && !node.right) {
+                return null;
             }
-        }*/
+
+            if (!node.left) {
+                return node.right;
+            }
+
+            if (!node.right) {
+                return node.left;
+            }
+
+            let temp = node.right;
+
+            while (temp.left) {
+                temp = temp.left;
+            }
+
+            node.value = temp.value;
+            node.right = this.innerRemove(node.right, temp.value) || null;
+        } else if (value < node.value) {
+            node.left = this.innerRemove(node.left, value) || null;
+            return node;
+        } else {
+            node.right = this.innerRemove(node.right, value) || null;
+            return node;
+        }
     }
 
     search(value: T): TBinarySearchTreeNode<T> | undefined {
@@ -90,5 +98,53 @@ export class BinarySearchTree<T> implements IBinarySearchTree<T> {
         }
 
         return undefined;
+    }
+
+    inorder(): T[] {
+        return this.inorderHelper(this.root, []);
+    }
+
+    private inorderHelper(node: TBinarySearchTreeNode<T>, result: T[]): T[] {
+        if (!node) {
+            return [];
+        }
+
+        this.inorderHelper(node.left, result);
+        result.push(node.value);
+        this.inorderHelper(node.right, result);
+
+        return result;
+    }
+
+    preorder(): T[] {
+        return this.preorderHelper(this.root, []);
+    }
+
+    private preorderHelper(node: TBinarySearchTreeNode<T>, result: T[]): T[] {
+        if (!node) {
+            return [];
+        }
+
+        result.push(node.value);
+        this.preorderHelper(node.left, result);
+        this.preorderHelper(node.right, result);
+
+        return result;
+    }
+
+    postorder(): T[] {
+        return this.postorderHelper(this.root, []);
+    }
+
+    private postorderHelper(node: TBinarySearchTreeNode<T>, result: T[]): T[] {
+        if (!node) {
+            return [];
+        }
+
+        this.postorderHelper(node.left, result);
+        this.postorderHelper(node.right, result);
+        result.push(node.value);
+
+        return result;
     }
 }
