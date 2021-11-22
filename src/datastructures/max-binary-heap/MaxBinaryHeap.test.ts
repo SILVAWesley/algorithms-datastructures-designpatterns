@@ -52,3 +52,34 @@ describe("MaxBinaryHeap | Simple | insert | 01", () => {
         ]);
     });
 });
+
+describe("MaxBinaryHeap | Simple | remove | 01", () => {
+    test("many elements", () => {
+        const heap = new MaxBinaryHeap();
+
+        heap.insert(41);
+        heap.insert(39);
+        heap.insert(33);
+        heap.insert(18);
+        heap.insert(27);
+        heap.insert(12);
+
+        heap.extractMax();
+        expect(heap.values).toStrictEqual([39, 27, 33, 18, 12]);
+
+        heap.extractMax();
+        expect(heap.values).toStrictEqual([33, 27, 12, 18]);
+
+        heap.extractMax();
+        expect(heap.values).toStrictEqual([27, 18, 12]);
+
+        heap.extractMax();
+        expect(heap.values).toStrictEqual([18, 12]);
+
+        heap.extractMax();
+        expect(heap.values).toStrictEqual([12]);
+
+        heap.extractMax();
+        expect(heap.values).toStrictEqual([]);
+    });
+});
