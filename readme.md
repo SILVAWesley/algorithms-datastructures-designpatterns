@@ -21,20 +21,27 @@ for problems from the following sources:
     * Linear Search
     * Binary Search
 * Sort
-    * Bubble Sort
-    * Selection Sort
-    * Insertion Sort
+    * [Bubble Sort](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/algorithms/sorts/bubblesort)
+    * [Selection Sort](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/algorithms/sorts/insertionsort)
+    * [Insertion Sort](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/algorithms/sorts/insertionsort)
     * Merge Sort
     * Quick Sort
     * Radix Sort
+* Graphs
+    * [Breadth First Search](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/algorithms/graphs/bfs)
+    * [Depth First Search](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/algorithms/graphs/dfs)
 
 #### Data Structures
+* [Binary Search Tree](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/datastructures/binary-search-tree)
 * [Singly Linked List](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/datastructures/singly-linked-list)
 * [Doubly Linked List](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/datastructures/doubly-linked-list)
+* [Max Binary Heap](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/datastructures/max-binary-heap)
+* [Priority Queue](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/datastructures/priority-queue)
 * [Queue](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/datastructures/queue)
 * [Stack](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/datastructures/stack)
+* [Tree](https://github.com/SILVAWesley/algorithms-datastructures-designpatterns/tree/main/src/datastructures/tree)
 
-####Design Patterns
+#### Design Patterns
 
 ## How to run?
 
