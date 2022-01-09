@@ -1,6 +1,5 @@
 import { TemperatureReporterAdapter } from "./TemperatureReporterAdapter";
 import { TemperatureRecorder } from "./TemperatureRecorder";
-import { TemperatureReporter } from "./TemperatureReporter";
 
 describe("adapter | Simple | 01", () => {
     test("Create prototype", () => {
