@@ -1,3 +1,3 @@
-export * from "./Device";
+export * from "./IDevice";
 export * from "./Radio";
 export * from "./Tv";

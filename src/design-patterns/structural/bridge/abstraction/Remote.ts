@@ -1,9 +1,9 @@
-import { Device } from "../implementations";
+import { IDevice } from "../implementations";
 
 export class Remote {
-    private device: Device;
+    private device: IDevice;
 
-    constructor(device: Device) {
+    constructor(device: IDevice) {
         this.device = device;
     }
 

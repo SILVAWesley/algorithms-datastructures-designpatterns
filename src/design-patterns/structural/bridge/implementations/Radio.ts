@@ -1,6 +1,6 @@
-import { Device } from "./Device";
+import { IDevice } from "./IDevice";
 
-export class Radio implements Device {
+export class Radio implements IDevice {
     private enabled: boolean;
     private volume: number;
     private channel: number;

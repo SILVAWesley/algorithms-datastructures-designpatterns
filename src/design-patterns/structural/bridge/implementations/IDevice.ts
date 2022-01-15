@@ -1,4 +1,4 @@
-export interface Device {
+export interface IDevice {
     isEnabled(): boolean;
     enable(): void;
     disable(): void;
